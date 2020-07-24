@@ -147,7 +147,7 @@ export default function App() {
   useEffect(() => {
     // Update the document title using the browser API
     getData('', 0);
-  });
+  }, []);
 
   const sort = (page, sortOrder) => {
     setIsLoading(true);
@@ -194,7 +194,7 @@ export default function App() {
           sort(tableState.page, tableState.sortOrder);
           break;
         default:
-          console.log('action not handled.');
+          console.log('action not handled.', action);
       }
     },
   };
@@ -230,8 +230,6 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>Hello CodeSandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
       <MUIDataTable
         title={
           <Typography variant="h6">
